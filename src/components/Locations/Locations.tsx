@@ -1,5 +1,4 @@
 // components
-import PageTitle from "../PageTitle/PageTitle";
 import BtnToMore from "../BtnToMore/BtnToMore";
 
 // locationsData
@@ -21,7 +20,9 @@ export default function Locations() {
 
   return (
     <>
-      <PageTitle text={"Локации"} />
+      <div className="greeting">
+        <p className="greeting__text">Локации</p>
+      </div>
       <ul className="listItems">
         {sortedLocations.map((el) => (
           <li key={el.id} className="listItems__item">
@@ -29,7 +30,9 @@ export default function Locations() {
               <span className="listItems__infoItem">
                 <b>Название:</b> {el.name}
               </span>
-              <BtnToMore path={"locations"} id={el.id} />
+              <div>
+                <BtnToMore path={"categories/locations"} id={el.id} />
+              </div>
             </div>
           </li>
         ))}

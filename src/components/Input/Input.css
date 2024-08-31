@@ -1,0 +1,23 @@
+.inputSection {
+  margin-top: 10px;
+  position: relative;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.inputSection__icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 10px;
+}
+
+.inputSection__input {
+  padding: 10px 10px 10px 30px;
+}
+
+.inputSection__input_isIcon {
+  padding-left: 10px;
+}

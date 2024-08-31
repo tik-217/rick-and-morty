@@ -1,3 +1,5 @@
+import { ChangeEvent, ReactElement } from "react";
+
 export interface ILoaction {
   id: number;
   name: string;
@@ -23,4 +25,14 @@ export interface IEpisodes {
   air_date: string;
   episode: string;
   created: string;
+}
+
+export interface IInputProps {
+  type: string;
+  name: string;
+  id: string;
+  placeholder?: string;
+  checked?: boolean;
+  icon?: ReactElement;
+  handleChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }

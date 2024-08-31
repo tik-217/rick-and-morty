@@ -25,15 +25,15 @@
   position: absolute;
   top: 0;
   left: 0;
+  width: max-content;
 }
 
 .subTitle__title span {
   cursor: pointer;
 }
 
-.navList__categories > ul {
-  display: flex;
-  flex-direction: row;
+.navList__item_nested {
+  width: -webkit-fill-available;
 }
 
 .categoriesNav {

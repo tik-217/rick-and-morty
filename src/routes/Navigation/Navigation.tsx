@@ -15,27 +15,32 @@ export default function Navigation() {
       <li className={"navList__item"}>
         <Link to={"/"}>Главная</Link>
       </li>
-      <li className={"navList__item"}>
+      <li className={"navList__item navList__item_nested"}>
         <details
           open={navListOpen}
           onMouseLeave={() => setNavListOpen(false)}
           className="subTitle"
         >
           <summary className="subTitle__title">
-            <span onMouseEnter={() => setNavListOpen(true)}>Категории</span>
+            <span onMouseEnter={() => setNavListOpen(true)}>
+              <Link to={"/categories"}>Категории</Link>
+            </span>
           </summary>
           <ul className="categoriesNav">
             <li className="categoriesNav__item">
-              <Link to={"/heroes"}>Герои</Link>
+              <Link to={"/categories/heroes"}>Герои</Link>
             </li>
             <li className="categoriesNav__item">
-              <Link to={"/episodes"}>Эпизоды</Link>
+              <Link to={"/categories/episodes"}>Эпизоды</Link>
             </li>
             <li className="categoriesNav__item">
-              <Link to={"/locations"}>Локации</Link>
+              <Link to={"/categories/locations"}>Локации</Link>
             </li>
           </ul>
         </details>
+      </li>
+      <li className="navList__item">
+        <Link to={"/login"}>Логин</Link>
       </li>
     </ul>
   );

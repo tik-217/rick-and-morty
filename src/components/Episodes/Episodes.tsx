@@ -1,5 +1,4 @@
 // components
-import PageTitle from "../PageTitle/PageTitle";
 import BtnToMore from "../BtnToMore/BtnToMore";
 
 // episodesData
@@ -21,7 +20,9 @@ export default function Episodes() {
 
   return (
     <>
-      <PageTitle text={"Эпизоды"} />
+      <div className="greeting">
+        <p className="greeting__text">Эпизоды</p>
+      </div>
       <ul className="listItems">
         {sortedEpisodes.map((el) => (
           <li key={el.id} className="listItems__item">
@@ -29,7 +30,7 @@ export default function Episodes() {
               <span className="listItems__infoItem">
                 <b>Название:</b> {el.name}
               </span>
-              <BtnToMore id={el.id} path={"episodes"} />
+              <BtnToMore path={"categories/episodes"} id={el.id} />
             </div>
           </li>
         ))}

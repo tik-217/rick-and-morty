@@ -1,4 +1,5 @@
 // components
+import { Outlet } from "react-router-dom";
 import PageTitle from "../PageTitle/PageTitle";
 
 // styles
@@ -6,8 +7,11 @@ import "./Home.css";
 
 export default function Home() {
   return (
-    <div className="home">
-      <PageTitle text={"Приветствую во вселенной Рика и Морти"} />
-    </div>
+    <>
+      <div className="home">
+        <PageTitle text={"Приветствую во вселенной Рика и Морти"} />
+      </div>
+      <Outlet />
+    </>
   );
 }
