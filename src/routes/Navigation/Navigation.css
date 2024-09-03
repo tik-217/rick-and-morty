@@ -11,6 +11,8 @@
 .navList__item {
   margin-right: 20px;
   position: relative;
+
+  justify-self: normal;
 }
 
 .navList__item:last-child {
@@ -33,7 +35,7 @@
 }
 
 .navList__item_nested {
-  width: -webkit-fill-available;
+  width: 100px;
 }
 
 .categoriesNav {

@@ -9,7 +9,6 @@ export default function useCheckItemInJson<T>({ json }: { json: Array<T> }) {
 
   if (foundetObject) {
     return foundetObject;
-  } else {
-    return false;
   }
+  return false;
 }

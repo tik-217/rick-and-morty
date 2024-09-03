@@ -1,6 +1,11 @@
-import { useContext } from "react";
-import { AuthContext } from "../Auth/Auth";
+// react-router-dom
 import { Navigate, useLocation } from "react-router-dom";
+
+// react
+import { useContext } from "react";
+
+// components
+import { AuthContext } from "../Auth/Auth";
 
 export default function PrivateAccess({ children }: { children: JSX.Element }) {
   const { user } = useContext(AuthContext);
