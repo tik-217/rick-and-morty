@@ -1,15 +1,3 @@
-import { ChangeEvent, ReactElement } from "react";
-
-export interface IInputProps {
-  type: string;
-  name: string;
-  id: string;
-  placeholder?: string;
-  checked?: boolean;
-  icon?: ReactElement;
-  handleChange?: (e: ChangeEvent<HTMLInputElement>) => void;
-}
-
 export interface IResEpisode {
   air_date: string;
   characters: string[];
@@ -51,11 +39,6 @@ export interface IResCharacte {
   url: string;
 }
 
-/*
-
-
-*/
-
 export interface IResRickAndMorty<T> {
   info: {
     count: number;
@@ -88,4 +71,10 @@ export interface IAuthContext {
   user: string | null;
   signIn: (newLogin: string, callback: () => void) => void;
   signOut: (callback: () => void) => void;
+}
+
+export interface IOutletContext<T> {
+  payloads: T;
+  haveNextPage: boolean;
+  setNextUrlPage: React.Dispatch<React.SetStateAction<number>>;
 }
