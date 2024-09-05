@@ -1,0 +1,15 @@
+.navList {
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  list-style: none;
+}
+
+.navList__item {
+  margin-left: 10px;
+  margin-right: 10px;
+}
