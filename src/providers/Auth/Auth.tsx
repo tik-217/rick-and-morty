@@ -1,10 +1,8 @@
+// react
 import { createContext, useState } from "react";
 
-interface IAuthContext {
-  user: string | null;
-  signIn: (newLogin: string, callback: () => void) => void;
-  signOut: (callback: () => void) => void;
-}
+// types
+import { IAuthContext } from "../../types";
 
 export const AuthContext = createContext<IAuthContext>({
   user: "",

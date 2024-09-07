@@ -1,22 +1,20 @@
 // react
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 
-// react-router-dom
-import { useSearchParams } from "react-router-dom";
-
-export default function useSortingByParams<T>({ object }: { object: T[] }) {
-  const [searchParams] = useSearchParams();
-  const [sortLocations] = useState<T[]>(object);
-
-  const sortParams = searchParams.get("sort");
-
+export default function useSortingByParams<T>({
+  object,
+  sortingState,
+}: {
+  object: T[];
+  sortingState: "ASC" | "DESC";
+}) {
   const sortedObject = useMemo(() => {
-    if (sortParams === "DESC") {
-      return sortLocations.map((_, i, arr) => arr[arr.length - 1 - i]);
+    if (sortingState === "DESC") {
+      return object.map((_, i, arr) => arr[arr.length - 1 - i]);
     }
-    return sortLocations;
+    return object;
     // eslint-disable-next-line
-  }, [sortParams]);
+  }, [object, sortingState]);
 
-  return sortedObject;
+  return sortedObject ?? object;
 }

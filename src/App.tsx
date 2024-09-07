@@ -1,35 +1,51 @@
+// react
+import { lazy } from "react";
+
 // react-router-dom
 import { Route, Routes } from "react-router-dom";
 
-// components
-import Home from "./components/Home/Home";
-import Signin from "./components/Signin/Signin";
-import Heroes from "./components/Heroes/Heroes";
-import Episodes from "./components/Episodes/Episodes";
-import NotFound from "./components/NotFound/NotFound";
-import Locations from "./components/Locations/Locations";
-import HeroesCard from "./components/HeroesCard/HeroesCard";
-import EpisodesCard from "./components/EpisodesCard/EpisodesCard";
-import LocationsCard from "./components/LocationsCard/LocationsCard";
-
 // providers
 import PrivateAccess from "./providers/PrivateAccess/PrivateAccess";
+import SuspenseWrap from "./providers/SuspenseWrap/SuspenseWrap";
 import Auth from "./providers/Auth/Auth";
 
 // styles
 import "./App.css";
 
+const Home = lazy(() => import("./components/Home/Home"));
+const Heroes = lazy(() => import("./components/Heroes/Heroes"));
+const Signin = lazy(() => import("./components/Signin/Signin"));
+const Episodes = lazy(() => import("./components/Episodes/Episodes"));
+const NotFound = lazy(() => import("./components/NotFound/NotFound"));
+const Locations = lazy(() => import("./components/Locations/Locations"));
+const HeroesCard = lazy(() => import("./components/HeroesCard/HeroesCard"));
+const EpisodesCard = lazy(
+  () => import("./components/EpisodesCard/EpisodesCard")
+);
+const LocationsCard = lazy(
+  () => import("./components/LocationsCard/LocationsCard")
+);
+
 export default function App() {
   return (
     <Auth>
       <Routes>
-        <Route path="/" element={<Home />}>
+        <Route
+          path="/"
+          element={
+            <SuspenseWrap>
+              <Home />
+            </SuspenseWrap>
+          }
+        >
           <Route path="/categories">
             <Route
               index
               element={
                 <PrivateAccess>
-                  <Heroes />
+                  <SuspenseWrap>
+                    <Heroes />
+                  </SuspenseWrap>
                 </PrivateAccess>
               }
             />
@@ -37,25 +53,29 @@ export default function App() {
               path={"heroes"}
               element={
                 <PrivateAccess>
-                  <Heroes />
+                  <SuspenseWrap>
+                    <Heroes />
+                  </SuspenseWrap>
                 </PrivateAccess>
               }
             ></Route>
-
             <Route
               path={"episodes"}
               element={
                 <PrivateAccess>
-                  <Episodes />
+                  <SuspenseWrap>
+                    <Episodes />
+                  </SuspenseWrap>
                 </PrivateAccess>
               }
             ></Route>
-
             <Route
               path={"locations"}
               element={
                 <PrivateAccess>
-                  <Locations />
+                  <SuspenseWrap>
+                    <Locations />
+                  </SuspenseWrap>
                 </PrivateAccess>
               }
             ></Route>
@@ -65,7 +85,9 @@ export default function App() {
           path={"categories/episodes/:id"}
           element={
             <PrivateAccess>
-              <EpisodesCard />
+              <SuspenseWrap>
+                <EpisodesCard />
+              </SuspenseWrap>
             </PrivateAccess>
           }
         />
@@ -73,7 +95,9 @@ export default function App() {
           path={"categories/locations/:id"}
           element={
             <PrivateAccess>
-              <LocationsCard />
+              <SuspenseWrap>
+                <LocationsCard />
+              </SuspenseWrap>
             </PrivateAccess>
           }
         />
@@ -81,12 +105,28 @@ export default function App() {
           path={"categories/heroes/:id"}
           element={
             <PrivateAccess>
-              <HeroesCard />
+              <SuspenseWrap>
+                <HeroesCard />
+              </SuspenseWrap>
             </PrivateAccess>
           }
         />
-        <Route path={"*"} element={<NotFound />} />
-        <Route path={"/login"} element={<Signin />} />
+        <Route
+          path={"/login"}
+          element={
+            <SuspenseWrap>
+              <Signin />
+            </SuspenseWrap>
+          }
+        />
+        <Route
+          path={"*"}
+          element={
+            <SuspenseWrap>
+              <NotFound />
+            </SuspenseWrap>
+          }
+        />
       </Routes>
     </Auth>
   );

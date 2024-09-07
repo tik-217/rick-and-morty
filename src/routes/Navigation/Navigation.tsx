@@ -1,14 +1,26 @@
 // react
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 // react-router-dom
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
+// providers
+import { AuthContext } from "../../providers/Auth/Auth";
 
 // styles
 import "./Navigation.css";
 
 export default function Navigation() {
   const [navListOpen, setNavListOpen] = useState(false);
+
+  const navigate = useNavigate();
+  const { signOut, user } = useContext(AuthContext);
+
+  const handleSignOut = () => {
+    signOut(() => {
+      navigate("/");
+    });
+  };
 
   return (
     <ul className={"navList"}>
@@ -40,7 +52,11 @@ export default function Navigation() {
         </details>
       </li>
       <li className="navList__item">
-        <Link to={"/login"}>Логин</Link>
+        {!user ? (
+          <Link to={"/login"}>Логин</Link>
+        ) : (
+          <button onClick={() => handleSignOut()}>Выйти</button>
+        )}
       </li>
     </ul>
   );

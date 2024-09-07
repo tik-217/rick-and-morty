@@ -25,7 +25,7 @@ export default function Signin() {
     const formData = new FormData(formEvent.currentTarget);
 
     const userEmail = formData.get("email");
- 
+
     userEmail &&
       signIn(userEmail.toString(), () => {
         navigate(locations.state?.from ?? "/");

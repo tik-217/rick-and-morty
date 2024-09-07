@@ -1,5 +1,7 @@
-// components
+// react-router-dom
 import { Outlet } from "react-router-dom";
+
+// components
 import PageTitle from "../PageTitle/PageTitle";
 
 // styles
