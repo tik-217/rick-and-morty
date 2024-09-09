@@ -1,0 +1,15 @@
+.pageTitle {
+  display: grid;
+  /* grid-template-columns: 1fr 1fr 1fr; */
+  align-items: center;
+  column-gap: 20px;
+}
+
+.greeting__title a {
+  text-decoration: none;
+  color: black;
+}
+
+.greeting__text {
+  text-align: center;
+}
