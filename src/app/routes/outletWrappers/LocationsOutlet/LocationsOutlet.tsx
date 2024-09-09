@@ -13,7 +13,11 @@ import { useGetRickAM } from "@/shared/api/hooks/useGetRickAM";
 export function LocationsOutlet() {
   const [nextUrlPage, setNextUrlPage] = useState(1);
 
-  const { rickAM: locations, haveNextPage } = useGetRickAM<IResLocation>({
+  const {
+    rickAM: locations,
+    haveNextPage,
+    fetchError,
+  } = useGetRickAM<IResLocation>({
     url: "https://rickandmortyapi.com/api/location",
     nextUrlPage,
   });
@@ -22,6 +26,7 @@ export function LocationsOutlet() {
     payloads: locations,
     haveNextPage,
     setNextUrlPage,
+    fetchError,
   };
 
   return <Outlet context={outletProps satisfies IOutletContext<ILocations>} />;

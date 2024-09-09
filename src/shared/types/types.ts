@@ -65,6 +65,7 @@ export interface IUseGetDataParams {
 export interface IUseScrollView {
   setNextUrlPage: React.Dispatch<React.SetStateAction<number>>;
   haveNextPage: boolean;
+  fetchError: boolean;
 }
 
 export interface IAuthContext {
@@ -77,4 +78,5 @@ export interface IOutletContext<T> {
   payloads: T;
   haveNextPage: boolean;
   setNextUrlPage: React.Dispatch<React.SetStateAction<number>>;
+  fetchError: boolean;
 }

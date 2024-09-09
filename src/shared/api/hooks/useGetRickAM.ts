@@ -22,6 +22,7 @@ export function useGetRickAM<T extends IUseGetDataGeneric>({
     {} as IResRickAndMorty<T>
   );
   const [haveNextPage, setHaveNextPage] = useState(true);
+  const [fetchError, setFetchError] = useState(false);
 
   useEffect(() => {
     if (!haveNextPage) return;
@@ -36,6 +37,8 @@ export function useGetRickAM<T extends IUseGetDataGeneric>({
 
     res
       .then(({ data }) => {
+        setFetchError(false);
+
         setRickAM((prev) => {
           const concatArr = prev.results
             ? [...prev.results, ...data.results]
@@ -53,9 +56,10 @@ export function useGetRickAM<T extends IUseGetDataGeneric>({
       })
       .catch((err) => {
         console.log(err);
+        setFetchError(true);
       });
     // eslint-disable-next-line
   }, [nextUrlPage]);
 
-  return { rickAM, haveNextPage };
+  return { rickAM, haveNextPage, fetchError };
 }

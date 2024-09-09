@@ -22,11 +22,13 @@ export function Heroes() {
     payloads: heroes,
     haveNextPage,
     setNextUrlPage,
+    fetchError,
   } = useOutletContext<IOutletContext<ICharacte>>();
 
   const { lastNodeElem } = useScrollView({
     setNextUrlPage,
     haveNextPage,
+    fetchError,
   });
 
   return (

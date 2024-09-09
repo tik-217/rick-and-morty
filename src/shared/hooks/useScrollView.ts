@@ -7,6 +7,7 @@ import { IUseScrollView } from "@/shared/types/types";
 export function useScrollView({
   setNextUrlPage,
   haveNextPage,
+  fetchError,
 }: IUseScrollView) {
   const observer: MutableRefObject<IntersectionObserver | null> = useRef(null);
 
@@ -19,7 +20,7 @@ export function useScrollView({
       }
 
       observer.current = new IntersectionObserver((entries) => {
-        if (entries[0].isIntersecting && haveNextPage) {
+        if (entries[0].isIntersecting && haveNextPage && !fetchError) {
           handlerNextPage();
         }
       });
@@ -30,7 +31,7 @@ export function useScrollView({
     },
 
     // eslint-disable-next-line
-    [haveNextPage]
+    [haveNextPage, fetchError]
   );
 
   return {

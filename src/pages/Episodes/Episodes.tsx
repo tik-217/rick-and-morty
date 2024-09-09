@@ -22,11 +22,13 @@ export function Episodes() {
     payloads: episodes,
     haveNextPage,
     setNextUrlPage,
+    fetchError,
   } = useOutletContext<IOutletContext<IEpisode>>();
 
   const { lastNodeElem } = useScrollView({
     setNextUrlPage,
     haveNextPage,
+    fetchError,
   });
 
   return (

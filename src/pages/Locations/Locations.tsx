@@ -22,11 +22,13 @@ export function Locations() {
     payloads: locations,
     haveNextPage,
     setNextUrlPage,
+    fetchError,
   } = useOutletContext<IOutletContext<ILocations>>();
 
   const { lastNodeElem } = useScrollView({
     setNextUrlPage,
     haveNextPage,
+    fetchError,
   });
 
   return (

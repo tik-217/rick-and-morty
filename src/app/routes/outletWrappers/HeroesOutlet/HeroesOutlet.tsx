@@ -13,7 +13,11 @@ import { ICharacte, IOutletContext, IResCharacte } from "@/shared/types/types";
 export function HeroesOutlet() {
   const [nextUrlPage, setNextUrlPage] = useState(1);
 
-  const { rickAM: heroes, haveNextPage } = useGetRickAM<IResCharacte>({
+  const {
+    rickAM: heroes,
+    haveNextPage,
+    fetchError,
+  } = useGetRickAM<IResCharacte>({
     url: "https://rickandmortyapi.com/api/character",
     nextUrlPage,
   });
@@ -22,6 +26,7 @@ export function HeroesOutlet() {
     payloads: heroes,
     haveNextPage,
     setNextUrlPage,
+    fetchError,
   };
 
   return <Outlet context={outletProps satisfies IOutletContext<ICharacte>} />;
