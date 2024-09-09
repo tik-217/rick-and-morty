@@ -26,6 +26,14 @@ export function useGetRickAM<T extends IUseGetDataGeneric>({
   useEffect(() => {
     if (!haveNextPage) return;
 
+    axios.interceptors.response.use(function (response) {
+      if (navigator.onLine) {
+        return response;
+      } else {
+        return Promise.reject(new Error("Network disconnect"));
+      }
+    });
+
     const res = axios<IResRickAndMorty<T>>({
       method: "GET",
       url,

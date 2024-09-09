@@ -14,10 +14,13 @@ import { MainRoutes } from "@/app/routes/MainRoutes";
 // shared
 import { Auth } from "@/shared/context/Auth";
 import { MantineTheme } from "@/shared/ui/MantineTheme";
+import { swInit } from "@/shared/utils/swInit.js";
 
 // styles
 import "@/app/styles/index.css";
 import "@mantine/core/styles.css";
+
+swInit();
 
 const root = createRoot(document.getElementById("root") as HTMLDivElement);
 root.render(
