@@ -28,16 +28,18 @@ Minimum project requirements:
    ```bash
    git clone https://github.com/tik-217/rick-and-morty.git
    cd rick-and-morty
-Install dependencies:
 
-```bash
-npm install
-```
-Start the development server:
+2. Install dependencies:
+  
+    ```bash
+    npm install
+    ```
 
-```bash
-npm run dev
-```
+3. Start the development server:
+  
+    ```bash
+    npm run dev
+    ```
 
 The app will be running at http://localhost:3000.
 
