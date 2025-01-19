@@ -1,50 +1,59 @@
-# React + TypeScript + Vite
+# Rick and Morty - React + TypeScript + Vite Template
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This application uses the public **Rick and Morty API** to fetch character data from the popular animated series. The app is built with **React**, **TypeScript**, and **Vite**. It displays characters from the series fetched via the API, with the ability to navigate through different character pages.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- **React** with TypeScript support
+- **Vite** builder vite is used
+- **ESLint** for linting with a basic configuration
+- **Support for plugins**:
+  - `@vitejs/plugin-react`
+  - `@vitejs/plugin-react-swc`: Uses SWC
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Setup
 
-- Configure the top-level `parserOptions` property like this:
+### Prerequisites
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+Minimum project requirements:
+
+- **Node.js** (v16 or higher)
+- **npm** (v7 or higher)
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/tik-217/rick-and-morty.git
+   cd rick-and-morty
+Install dependencies:
+
+```bash
+npm install
+```
+Start the development server:
+
+```bash
+npm run dev
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+The app will be running at http://localhost:3000.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Project Structure
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```src/: Contains all the source code.```
+
+```public/: Contains static files such as index.html.```
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Contributing
+
+Feel free to fork the repository and submit pull requests. If you find any issues, please open an issue.
+```
+This README outlines the basic setup and instructions for using the project, along with suggestions for enhancing ESLint configuration. You can adjust it further as needed for your project!
 ```
